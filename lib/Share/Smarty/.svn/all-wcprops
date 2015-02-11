@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/opensmt/!svn/ver/20/trunk/site/lib/Share/Smarty
+END
+View.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/opensmt/!svn/ver/20/trunk/site/lib/Share/Smarty/View.php
+END
+Smarty_Compiler.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/opensmt/!svn/ver/20/trunk/site/lib/Share/Smarty/Smarty_Compiler.class.php
+END
+debug.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/opensmt/!svn/ver/20/trunk/site/lib/Share/Smarty/debug.tpl
+END
+Smarty.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/opensmt/!svn/ver/20/trunk/site/lib/Share/Smarty/Smarty.class.php
+END
+Config_File.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/opensmt/!svn/ver/20/trunk/site/lib/Share/Smarty/Config_File.class.php
+END

@@ -1,0 +1,134 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>zpool op</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">    
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>pool name</label>
+                    </th>
+		    <td>
+			    <select name="poolName">
+				    <{foreach from=$zpoolName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>op type</label>
+                    </th>
+                    <td>
+                        <select name="opType">
+				<option value='destroy'>destroy</option>
+				<option value='add'>add</option>
+				<option value='attach'>attach</option>
+				<option value='detach'>detach</option>
+				<option value='clear'>clear</option>
+				<option value='replace'>replace</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>vdevice type</label>
+                    </th>
+                    <td>
+                        <select name="vdeviceType">
+				<option value=' '>stripe(default)</option>
+				<option value='mirror'>mirror</option>
+				<option value='raidz'>raidz</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Disks</label>
+                    </th>
+                    <td>
+			<select name="disk1">
+				<{foreach from=$diskName item=disk}>
+                            	<option value="<{$disk}>"><{$disk}></option>
+                            	<{/foreach}>
+			</select>
+                    </td>
+                </tr>
+		<tr valign="top">
+		    <th scope="row">
+		    </th>
+                    <td>
+			<select name="disk2">
+                                <option value=""></option>
+				<{foreach from=$diskName item=disk}>
+                            	<option value="<{$disk}>"><{$disk}></option>
+                            	<{/foreach}>
+			</select>
+                    </td>
+                </tr>
+		<tr valign="top">
+		    <th scope="row">
+		    </th>
+                    <td>
+			<select name="disk3">
+                                <option value=""></option>
+				<{foreach from=$diskName item=disk}>
+                            	<option value="<{$disk}>"><{$disk}></option>
+                            	<{/foreach}>
+			</select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>其它选项</label>
+                    </th>
+                    <td>
+                        <fieldset>
+                            <legend class="hidden">其它选项</legend>
+                            <label title="其它选项1">
+                                <input type="radio" checked="checked" value="其它选项1" name="date_format"/> 其它选项1
+                            </label>
+                            <br/>
+                            <label title="其它选项2">
+                                <input type="radio" checked="checked" value="其它选项2" name="date_format"/> 其它选项2
+                            </label>
+                            <br/>
+                            <label title="其它选项3">
+                                <input type="radio" checked="checked" value="其它选项3" name="date_format"/> 其它选项3
+                            </label>
+                            <br/>
+                            <label title="其它选项4">
+                                <input type="radio" checked="checked" value="其它选项4" name="date_format"/> 其它选项4
+                            </label>
+                            <br/>
+                            <label>
+                                <input type="radio" value="\c\u\s\t\o\m" name="date_format"/> 自定义参数：
+                            </label>
+                            <input type="text" class="text" value="" name="ping_custom"/>
+                            <p>
+                                <a href="http://codex.wordpress.org/Formatting_Date_and_Time">zpool的相关文档</a>
+                                。点击访问相关网站
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Do!" name="Submit"/>
+        </p>
+    </form>
+</div>

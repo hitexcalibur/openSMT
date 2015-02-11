@@ -1,0 +1,52 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of defaultController
+ *
+ * @author Hotaru
+ */
+class defaultController  extends K980K_Controller_Action_Smarty {
+    public $menucurrent = 'zfs';
+    public $menuopen = 'zfs';
+    public function  __construct($options,$extendData) {       
+       parent::__construct($options, $extendData);
+       $view = $this->getViewInstance();
+       $view->addTitle('zfs');
+    }
+    public function defaultAction() {
+        exec('passwd -a root',$a,$b);
+        var_dump($a,$b);
+    }
+    //put your code here
+
+    public function zfsinfoAction() {
+	$shell = new K980K_Shell();
+	$view = $this->getViewInstance();
+	$viewOptions = $this->getViewOptions();
+	$return = $shell->exec('pfexec zfs list -H');
+
+	$myArray = array();
+	for ($i = 0; $i < count($return); $i++) {
+		$myArray[$i] = array();
+		$parts = explode("\t", $return[$i]);
+		foreach ($parts as $part) {
+			array_push($myArray[$i], $part);
+		}
+	}
+	var_dump($myArray);
+
+	$view->assign('myArray', $myArray);
+	$view->assign('_baseUrl', $viewOptions['template']['baseUrl']);
+	$view->assign('tplfile', 'element/zfsinfo.html');
+	$view->assign('subaction', 'zfsinfo');
+	
+	$view->addTitle('zfs info');
+	$this->display();
+    }
+
+}
+?>

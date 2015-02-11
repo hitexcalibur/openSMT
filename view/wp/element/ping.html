@@ -1,0 +1,92 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>IP工具</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">    
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Enter host name or ip:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="ping_des" id="ping_des" value="127.0.0.1"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Stop after sending (and receiving) N packets:</label>
+                    </th>
+                    <td>
+                        <select name="ping_count">
+                            <{section name=customer loop=10 start=1}>
+                            <option value="<{$smarty.section.customer.index}>"><{$smarty.section.customer.index}>次</option>
+                            <{/section}>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Data size</label>
+                    </th>
+                    <td>
+                        <select name="ping_sizeof">
+                            <{section name=customer loop=10 start=2 step=2}>
+                            <{assign var=size value=$smarty.section.customer.index*$smarty.section.customer.index}>
+                            <option value="<{$size}>"><{$size}>kb</option>
+                            <{/section}>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>其它选项</label>
+                    </th>
+                    <td>
+                        <fieldset>
+                            <legend class="hidden">其它选项</legend>
+                            <label title="其它选项1">
+                                <input type="radio" checked="checked" value="其它选项1" name="date_format"/> 其它选项1
+                            </label>
+                            <br/>
+                            <label title="其它选项2">
+                                <input type="radio" checked="checked" value="其它选项2" name="date_format"/> 其它选项2
+                            </label>
+                            <br/>
+                            <label title="其它选项3">
+                                <input type="radio" checked="checked" value="其它选项3" name="date_format"/> 其它选项3
+                            </label>
+                            <br/>
+                            <label title="其它选项4">
+                                <input type="radio" checked="checked" value="其它选项4" name="date_format"/> 其它选项4
+                            </label>
+                            <br/>
+                            <label>
+                                <input type="radio" value="\c\u\s\t\o\m" name="date_format"/> 自定义参数：
+                            </label>
+                            <input type="text" class="text" value="" name="ping_custom"/>
+                            <p>
+                                <a href="http://codex.wordpress.org/Formatting_Date_and_Time">ping的相关文档</a>
+                                。点击访问相关网站
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Ping!" name="Submit"/>
+        </p>
+    </form>
+</div>

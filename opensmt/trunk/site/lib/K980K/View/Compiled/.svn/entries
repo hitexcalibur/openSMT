@@ -1,0 +1,46 @@
+8
+
+dir
+21
+http://yp.cs.hit.edu.cn/svn/opensmt/trunk/site/lib/K980K/View/Compiled
+http://yp.cs.hit.edu.cn/svn/opensmt
+
+
+
+2009-12-16T04:18:08.345952Z
+20
+halfelf
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3404b977-d824-4bb4-92ed-eaef23b95357
+
+Adapter
+dir
+
+Abstract
+dir
+
+Adapter.php
+file
+
+
+
+
+2009-12-23T01:08:21.658353Z
+f00bca91220884968964071a3d5c0b75
+2009-12-16T04:18:08.345952Z
+20
+halfelf
+

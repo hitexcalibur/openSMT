@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/opensmt/!svn/ver/21/trunk/site
+END
+cpyright.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/opensmt/!svn/ver/20/trunk/site/cpyright.txt
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/opensmt/!svn/ver/20/trunk/site/.htaccess
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/opensmt/!svn/ver/20/trunk/site/readme.txt
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/opensmt/!svn/ver/20/trunk/site/index.php
+END

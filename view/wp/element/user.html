@@ -1,0 +1,43 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $users}>
+    <div class="admin-panel-wrap">
+        <div class="icon-edit icon32">
+            <br/>
+        </div>
+        <h2>Users List</h2>
+        <form class="posts-filter" action="" method="post">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="10%">Username</th>
+			<th class="manage-column column-author" style="" scope="col">Uid</th>
+			<th class="manage-column column-author" style="" scope="col">Gid</th>
+			<th class="manage-column column-author" style="" scope="col">Comment</th>
+			<th class="manage-column column-author" style="" scope="col">homeDir</th>
+			<th class="manage-column column-author" style="" scope="col">Shell</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach from=$users item=row}>
+			<tr>
+				<{foreach from=$row item=col}>
+				<td><{$col}></td>
+				<{/foreach}>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$row[0]}>" value="Edit" />
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+        
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

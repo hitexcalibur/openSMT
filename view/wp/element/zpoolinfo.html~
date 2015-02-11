@@ -1,0 +1,54 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <{if $myArray}>
+    <div class="admin-panel-wrap">
+        <div class="icon-edit icon32">
+            <br/>
+        </div>
+        <h2>zpool info</h2>
+        <form class="posts-filter" action="" method="post">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="10%">Name</th>
+			<th class="manage-column column-author" style="" scope="col">Size</th>
+			<th class="manage-column column-author" style="" scope="col">Used</th>
+			<th class="manage-column column-author" style="" scope="col">Avail</th>
+			<th class="manage-column column-author" style="" scope="col">Cap</th>
+			<th class="manage-column column-author" style="" scope="col">Health</th>
+			<th class="manage-column column-author" style="" scope="col">ALTROOT</th>
+			<th class="manage-column column-author" style="" scope="col">Op</th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach from=$myArray item=row}>
+			<tr>
+				<{foreach from=$row item=col}>
+				<td><{$col}></td>
+				<{/foreach}>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$row[0]}>" value="Status" />
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+            </div>
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

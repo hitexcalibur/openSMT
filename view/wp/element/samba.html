@@ -1,0 +1,42 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $smbshare}>
+    <div class="admin-panel-wrap">
+        <div class="icon-edit icon32">
+            <br/>
+        </div>
+        <h2>Samba Share List</h2>
+        <form class="posts-filter" action="" method="post">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="30%">Path</th>
+			<th class="manage-column column-author" style="" scope="col">Name</th>
+                        <th class="manage-column column-author" style="" scope="col">Comment</th>
+                        <th class="manage-column column-author" style="" scope="col">Browseable</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach key=sharename item=shareinfo from=$smbshare}>
+			<tr>
+				<td><{$shareinfo[$pa]}></td>
+                                <td><{$sharename}></td>
+                                <td><{$shareinfo[$comm]}></td>
+                                <td><{$shareinfo[$browse]}></td>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$sharename}>" value="Edit" />
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

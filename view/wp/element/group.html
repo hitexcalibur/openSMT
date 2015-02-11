@@ -1,0 +1,40 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $groups}>
+    <div class="admin-panel-wrap">
+        <div class="icon-edit icon32">
+            <br/>
+        </div>
+        <h2>Groups List</h2>
+        <form class="posts-filter" action="" method="post">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="10%">GID</th>
+			<th class="manage-column column-author" style="" scope="col">Group</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach key=gid item=gname from=$groups}>
+			<tr>
+
+				<td><{$gid}></td>
+                                <td><{$gname}></td>
+				
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$gid}>" value="Edit" />
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

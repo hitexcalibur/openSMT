@@ -1,0 +1,165 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>zfs query</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <pre>
+            <strong><{$execMessage[line]}></strong>
+        </pre>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>pool name</label>
+                    </th>
+		    <td>
+			    <select name="zpool_name">
+                                    <option value="">All</option>
+				    <{foreach from=$zfsName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>recursive</label>
+                    </th>
+                    <td>
+                        <input type="checkbox" name="recursive" value="1" />
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Type</label>
+                    </th>
+                    <td>
+                        <fieldset>
+                            <legend class="hidden">Type</legend>
+                            <label title="All">
+                                <input type="radio" checked="checked" value="all" name="type"/> All
+                            </label>
+                            <br/>
+                            <label title="filesystem">
+                                <input type="radio" value="filesystem" name="type"/> filesystem
+                            </label>
+                            <br/>
+                            <label title="volume">
+                                <input type="radio" value="volume" name="type"/> volume
+                            </label>
+                            <br/>
+                            <label title="snapshot">
+                                <input type="radio" value="snapshot" name="type"/> snapshot
+                            </label>
+                            <br/>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Options</label>
+                    </th>
+                    <td>
+                        <fieldset>
+                            <label title="all">
+                                <input type="checkbox" name="all" value="1" />all
+                            </label>
+                            <label title="name">
+                                <input type="checkbox" checked="checked" name="name" value="1" />name
+                            </label>
+                            <label title="aclinherit">
+                                <input type="checkbox" name="aclinherit" value="1" />aclinherit
+                            </label>
+                            <label title="aclmode">
+                                <input type="checkbox" name="aclmode" value="1" />aclmode
+                            </label>
+                            <label title="atime">
+                                <input type="checkbox" name="atime" value="1" />atime
+                            </label>
+                            <label title="available">
+                                <input type="checkbox" name="available" value="1" />available
+                            </label>
+                            <label title="checksum">
+                                <input type="checkbox" name="checksum" value="1" />checksum
+                            </label>
+                            <label title="compression">
+                                <input type="checkbox" name="compression" value="1" />compression
+                            </label>
+                            <label title="compressratio">
+                                <input type="checkbox" name="compressratio" value="1" />compressratio
+                            </label>
+                            <label title="creation">
+                                <input type="checkbox" name="creation" value="1" />creation
+                            </label>
+                            <label title="devices">
+                                <input type="checkbox" name="devices" value="1" />devices
+                            </label>
+                            <label title="exec">
+                                <input type="checkbox" name="exec" value="1" />exec
+                            </label>
+                            <label title="mounted">
+                                <input type="checkbox" name="mounted" value="1" />mounted
+                            </label>
+                            <label title="mountpoint">
+                                <input type="checkbox" name="mountpoint" value="1" />mountpoint
+                            </label>
+                            <label title="origin">
+                                <input type="checkbox" name="origin" value="1" />origin
+                            </label>
+                            <label title="quota">
+                                <input type="checkbox" name="quota" value="1" />quota
+                            </label>
+                            <label title="readonly">
+                                <input type="checkbox" name="readonly" value="1" />readonly
+                            </label>
+                            <label title="recordsize">
+                                <input type="checkbox" name="recordsize" value="1" />recordsize
+                            </label>
+                            <label title="referenced">
+                                <input type="checkbox" name="referenced" value="1" />referenced
+                            </label>
+                            <label title="reservation">
+                                <input type="checkbox" name="reservation" value="1" />reservation
+                            </label>
+                            <label title="sharenfs">
+                                <input type="checkbox" name="sharenfs" value="1" />sharenfs
+                            </label>
+                            <label title="setuid">
+                                <input type="checkbox" name="setuid" value="1" />setuid
+                            </label>
+                            <label title="snapdir">
+                                <input type="checkbox" name="snapdir" value="1" />snapdir
+                            </label>
+                            <label title="type">
+                                <input type="checkbox" name="type" value="1" />type
+                            </label>
+                            <label title="used">
+                                <input type="checkbox" name="used" value="1" />used
+                            </label>
+                            <label title="volsize">
+                                <input type="checkbox" name="volsize" value="1" />volsize
+                            </label>
+                            <label title="volblocksize">
+                                <input type="checkbox" name="volblocksize" value="1" />volblocksize
+                            </label>
+                            <label title="zoned">
+                                <input type="checkbox" name="zoned" value="1" />zoned
+                            </label>
+                        </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Query!" name="Submit"/>
+        </p>
+    </form>
+</div>

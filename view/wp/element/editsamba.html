@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Edit/Add Samba Share Directory </h2>
+
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Name:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="name" id="name" value="<{$sharename}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Comment:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="comment" id="comment" value="<{$smbshare[$comment]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Path:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="path" id="path" value="<{$smbshare[$path]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Read Only:</label>
+                    </th>
+		    <td>
+                        <{if $smbshare[$readonly] == 'yes' }>
+			    <input type = "checkbox" name = "readonly" checked> Set Read Only <p>
+                        <{else}>
+                            <input type = "checkbox" name = "readonly" > Set Read Only <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Browseable:</label>
+                    </th>
+		    <td>
+                        <{if $smbshare[$browseable] == 'yes' }>
+			    <input type = "checkbox" name = "browseable" checked> Set Browseable <p>
+                        <{else}>
+                            <input type = "checkbox" name = "browseable" > Set Browseable <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Public:</label>
+                    </th>
+		    <td>
+                        <{if $smbshare[$public] == 'yes' }>
+			    <input type = "checkbox" name = "public" checked> Set Public <p>
+                        <{else}>
+                            <input type = "checkbox" name = "public" > Set Public <p>
+                        <{/if}>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Apply Changes" name="Submit"/>
+        </p>
+    </form>
+</div>

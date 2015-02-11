@@ -1,0 +1,136 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{foreach from=$execMessage item=line}>
+        <p>
+            <strong><{$line}></strong>
+        </p>
+        <{/foreach}>
+    </div>
+    <{else}>
+    <{/if}>
+    <{if $myArray}>
+    <div class="admin-panel-wrap">
+        <div class="icon-edit icon32">
+            <br/>
+        </div>
+        <h2>zfs snapshot</h2>
+        <form class="posts-filter" action="" method="post">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="25%">Name</th>
+			<th class="manage-column column-author" style="" scope="col">Used</th>
+			<th class="manage-column column-author" style="" scope="col">Avail</th>
+			<th class="manage-column column-author" style="" scope="col">Refer</th>
+			<th class="manage-column column-author" style="" scope="col">Mount Point</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{section name=line loop=$myArray}>
+			<tr>
+				<{foreach from=$myArray[line] item=col}>
+				<td><{$col}></td>
+				<{/foreach}>
+                                <td>
+                                    <input class="button-secondary action doaction" type="submit" value="Destroy!" name="<{$smarty.section.line.index}>"/>
+                                </td>
+			</tr>
+			<{/section}>
+		</tbody>
+            </table>
+        </form>
+    </div>
+    <{else}>
+    <{/if}>
+
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>zfs name</label>
+                    </th>
+		    <td>
+			    <select name="zfs_name">
+				    <{foreach from=$zfsName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>snapshot name</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="snapshot_name" id="zfs_name" value=""/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>其它选项</label>
+                    </th>
+                    <td>
+                        <fieldset>
+                            <legend class="hidden">其它选项</legend>
+                            <label title="其它选项1">
+                                <input type="radio" checked="checked" value="其它选项1" name="date_format"/> 其它选项1
+                            </label>
+                            <br/>
+                            <label title="其它选项2">
+                                <input type="radio" checked="checked" value="其它选项2" name="date_format"/> 其它选项2
+                            </label>
+                            <br/>
+                            <label title="其它选项3">
+                                <input type="radio" checked="checked" value="其它选项3" name="date_format"/> 其它选项3
+                            </label>
+                            <br/>
+                            <label title="其它选项4">
+                                <input type="radio" checked="checked" value="其它选项4" name="date_format"/> 其它选项4
+                            </label>
+                            <br/>
+                            <label>
+                                <input type="radio" value="\c\u\s\t\o\m" name="date_format"/> 自定义参数：
+                            </label>
+                            <input type="text" class="text" value="" name="ping_custom"/>
+                            <p>
+                                <a href="http://codex.wordpress.org/Formatting_Date_and_Time">zfs的相关文档</a>
+                                。点击访问相关网站
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Create!" name="Submit"/>
+        </p>
+    </form>
+
+     <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>snapshot name</label>
+                    </th>
+		    <td>
+			    <select name="snapshot_name">
+				    <{foreach from=$zfssnapshot item = snapshot}>
+				    <option value = "<{$zpool}>"><{$snapshot}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Rollback!" name="roolback" />
+        </p>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+8
+
+dir
+21
+http://yp.cs.hit.edu.cn/svn/opensmt/trunk/site/data/etc
+http://yp.cs.hit.edu.cn/svn/opensmt
+
+
+
+2009-12-16T04:56:09.743710Z
+21
+halfelf
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3404b977-d824-4bb4-92ed-eaef23b95357
+
+config.inc.php
+file
+
+
+
+
+2009-12-23T01:08:21.826244Z
+4ff5e7a1c9be9392ef613cb8d9a39997
+2009-12-16T04:56:09.743710Z
+21
+halfelf
+

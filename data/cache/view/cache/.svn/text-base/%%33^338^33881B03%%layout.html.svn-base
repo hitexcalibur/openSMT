@@ -1,0 +1,536 @@
+299
+a:4:{s:8:"template";a:6:{s:11:"layout.html";b:1;s:19:"snippet/header.html";b:1;s:23:"element/traceroute.html";b:1;s:20:"snippet/content.html";b:1;s:25:"snippet/otherElement.html";b:1;s:19:"snippet/footer.html";b:1;}s:9:"timestamp";i:1260939297;s:7:"expires";i:1260942897;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <link rel="stylesheet" href="/site/view/wp//Global.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="/site/view/wp//Style.css" type="text/css" media="all" />
+
+        <link rel="stylesheet" href="/site/view/wp//Color.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="/site/view/wp//Ui.css" type="text/css" media="all" />
+        <script type="text/javascript" src="/site/view/wp//mootools-1.2.4-core.js"></script>
+        <script type="text/javascript" src="/site/view/wp//mootools-1.2.4.1-more.js"></script>
+
+
+        <!--[if gte IE 6]>
+        <link rel="stylesheet" href="/site/view/wp//ie.css" type="text/css" media="all" />
+        <![endif]-->
+        <script type="text/javascript">
+            //<![CDATA[
+
+            window.addEvent('domready', function() {
+                var favorite_inside = $('favorite-inside');
+                var favorite_first = $('favorite-first');
+                favorite_inside.setStyle('display ', 'block');
+                if (favorite_first.offsetWidth < favorite_inside.offsetWidth) {
+                    favorite_first.setStyle('width', favorite_inside.offsetWidth - 4 + 'px');
+                    favorite_inside.setStyle('width', favorite_first.offsetWidth - 4 + 'px');
+                }
+                favorite_inside.setStyle('display', 'none');
+                favorite_inside.setStyle('width', favorite_first.offsetWidth - 4 + 'px');
+
+                $$('.handlediv').each(function(element) {
+                    element.addEvent('click', function() {
+                        var parent = this.parentNode;
+                        if (parent.get('class').trim() == 'postbox') {
+                            $(parent).addClass('closed')
+                        } else {
+                            $(parent).removeClass('closed');
+                        }
+                    });
+                });
+                $$('.menu-toggle').each(function(element) {
+                    element.addEvent('click', function() {
+                        var parent = this.parentNode;
+                        parent = $(parent)
+                        if (parent.hasClass('menu-open')) {
+                            parent.removeClass('menu-open');
+                        } else {
+                            parent.addClass('menu-open');
+                        }
+                    })
+                })
+                $$('.favorite-toggle').each(function(element) {
+                    element.addEvent('click', function() {
+                        var ffirst = $('favorite-first');
+                        var finside = $('favorite-inside');
+                        if (ffirst.get('class').trim() == 'favorite-first') {
+                            ffirst.addClass('slide-down');
+                            finside.removeClass('slideUp');
+                            finside.addClass('slideDown');
+                            finside.setStyle('display', 'block');
+
+                        } else {
+                            ffirst.removeClass('slide-down');
+                            finside.removeClass('slideDown');
+                            finside.addClass('slideUp');
+                            finside.setStyle('display', 'none');
+                        }
+                    })
+                })
+                $$('.show-settings').each(function(element) {
+                    element.addEvent('click', function() {
+                        if (this.get('class').trim() == 'show-settings') {
+                            $(this.get('id') + '-wrap').setStyle('display', 'block');
+                            $$('.show-settings').removeClass('open');
+                            $$('.screen-meta-toggle').addClass('invisible');
+                            this.removeClass('invisible').addClass('open');
+                            this.parentNode.removeClass('invisible')
+
+                        } else {
+                            $$('.screen-meta-panel').setStyle('display', 'none');
+                            $$('.show-settings').removeClass('open');
+                            $$('.screen-meta-toggle').removeClass('invisible');
+                        }
+                    })
+                })
+                //editor =  $('iframeName在在').contentWindow;
+
+
+                //editor.document.open();
+                //editor.document.writeln('<html><body onclick="alert(window);"></body></html>');
+                // editor.document.close();
+                //editor.document.designMode="On";
+                // editor.document.contentEditable =true;
+                //  editor.document.body.name = "alert('a')"
+                //var editor = new Editor();
+            })
+            //]]>
+
+        </script>
+        
+
+        <title>后台管理 &rsaquo; diagnostics &rsaquo; traceroute</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="innerwrap">
+                <div class="head">
+    <div class="innerhead">
+        <div class="head-logo">
+        </div>
+        <h1>
+            <a href="javascript:;" onclick="return false;" title="查看站点">WordPress 博客 <span>&larr; 查看站点</span></a>
+        </h1>
+        <div class="head-info">
+            <div class="user_info">
+                <p>
+                    <a title="Edit your profile" href="javascript:;" onclick="return false;">admin</a>
+                    <span class="turbo-nag hidden" style="display: inline;"> | <a href="javascript:;" onclick="return false;">加速</a></span> |
+                    <a title="退出" href="javascript:;" onclick="return false;">退出</a></p>
+            </div>
+        </div>
+        <div id="favorite-actions" class="favorite-actions" >
+            <div id="favorite-first" class="favorite-first">
+                <a href="javascript:;" onclick="return false;">添加新</a>
+            </div>
+            <div id="favorite-toggle" class="favorite-toggle">
+                <br/>
+            </div>
+            <div id="favorite-inside" style="display: block;" class="favorite-inside slideUp">
+                <div class="favorite-action">
+                    <a href="javascript:;" onclick="return false;">添加新文章1</a>
+                </div>
+                <div class="favorite-action">
+                    <a href="javascript:;" onclick="return false;">添加新文章2</a>
+                </div>
+                <div class="favorite-action">
+                    <a href="javascript:;" onclick="return false;">添加新文章3</a>
+                </div>
+                <div class="favorite-action">
+                    <a href="javascript:;" onclick="return false;">添加新文章4</a>
+                </div>
+                <div class="favorite-action">
+                    <a href="javascript:;" onclick="return false;">添加新文章5</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>                <div class="content">
+    <div class="innercontent">
+        <ul id="adminmenu" class="adminmenu">
+            <li id="menu-dashboard" class="first-item  menu-top menu-top-first menu-top-last ">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="first-item  menu-top menu-top-first menu-top-last " tabindex="1" href="/site" >控制面板</a>
+            </li>
+            <li class="menu-separator"></li>
+            
+                        
+            <li id ="menu-diagnostics" class="has-submenu menu-top-first has-current-submenu menu-open ">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="has-submenu menu-top menu-top-first has-current-submenu menu-open " tabindex="1" href="javascript:;" onclick="return false;">diagnostics</a>
+                <div class="submenu">
+                    <div class="submenu-head">diagnostics</div>
+                                       
+                    <ul>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/diagnostics/default/ping" >ping</a>
+                        </li>
+                                                <li class="current">
+                           
+                            <a tabindex="1" class="current" href="/site/diagnostics/default/traceroute" >Traceroute</a>
+                        </li>
+                                            </ul>
+                </div>
+            </li>
+                        
+            <li id ="menu-disk" class="has-submenu    ">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="has-submenu menu-top    " tabindex="1" href="javascript:;" onclick="return false;">disk</a>
+                <div class="submenu">
+                    <div class="submenu-head">disk</div>
+                                       
+                    <ul>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/disk/default/zpoolinfo" >zpoolinfo</a>
+                        </li>
+                                            </ul>
+                </div>
+            </li>
+                        
+            <li id ="menu-service" class="has-submenu    ">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="has-submenu menu-top    " tabindex="1" href="javascript:;" onclick="return false;">service</a>
+                <div class="submenu">
+                    <div class="submenu-head">service</div>
+                                       
+                    <ul>
+                                            </ul>
+                </div>
+            </li>
+                        
+            <li id ="menu-test" class="has-submenu    ">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="has-submenu menu-top    " tabindex="1" href="javascript:;" onclick="return false;">test</a>
+                <div class="submenu">
+                    <div class="submenu-head">test</div>
+                                       
+                    <ul>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                            </ul>
+                </div>
+            </li>
+                        
+            <li id ="menu-test2" class="has-submenu    menu-top-last">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="has-submenu menu-top    menu-top-last" tabindex="1" href="javascript:;" onclick="return false;">test2</a>
+                <div class="submenu">
+                    <div class="submenu-head">test2</div>
+                                       
+                    <ul>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                                <li >
+                           
+                            <a tabindex="1"  href="/site/test/test/test1/" >text1</a>
+                        </li>
+                                            </ul>
+                </div>
+            </li>
+                        <li class="menu-separator"></li>
+
+        </ul>
+        <div class="admin-panel">
+            <div id="screen-meta" class="screen-meta">
+                <div id="show-help-link-wrap" class="screen-meta-panel">
+                    <h5>在屏幕上显示帮助</h5>
+                </div>
+                <div id="show-settings-link-wrap" class="screen-meta-panel">
+                    <h5>在屏幕上显示设置</h5>
+                </div>
+                <div id="screen-meta-links" class="screen-meta-links">
+                    <div class="screen-meta-toggle">
+                        <a id="show-help-link" class="show-settings" href="javascript:;"  onclick="return false;">帮助</a>
+                    </div>
+                    <div class="screen-meta-toggle" >
+                        <a id="show-settings-link" class="show-settings" href="javascript:;" onclick="return false;">显示选项</a>
+                    </div>
+                </div>
+            </div>
+            <div class="update-nag">
+                WordPress 2.8.5 版本可用！
+                <a href="javascript:;" onclick="return false;">现在升级</a>
+                。
+            </div>
+                        <div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Traceroute</h2>
+            <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Enter host name or ip:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" id="traceroute_des" name="traceroute_des" value="127.0.0.1"/>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Specify max ttl:</label>
+                    </th>
+                    <td>
+                        <select id="traceroute_ttl" name="traceroute_ttl">
+                                                                                    <option value="1">1</option>
+                                                                                                                <option value="2">2</option>
+                                                                                                                <option value="3">3</option>
+                                                                                                                <option value="4">4</option>
+                                                                                                                <option value="5">5</option>
+                                                                                                                <option value="6">6</option>
+                                                                                                                <option value="7">7</option>
+                                                                                                                <option value="8">8</option>
+                                                                                                                <option value="9">9</option>
+                                                                                                                <option value="10">10</option>
+                                                                                                                <option value="11">11</option>
+                                                                                                                <option value="12">12</option>
+                                                                                                                <option value="13">13</option>
+                                                                                                                <option value="14">14</option>
+                                                                                                                <option value="15">15</option>
+                                                                                                                <option value="16">16</option>
+                                                                                                                <option value="17">17</option>
+                                                                                                                <option value="18">18</option>
+                                                                                                                <option value="19">19</option>
+                                                                                                                <option value="20">20</option>
+                                                                                                                <option value="21">21</option>
+                                                                                                                <option value="22">22</option>
+                                                                                                                <option value="23">23</option>
+                                                                                                                <option value="24">24</option>
+                                                                                                                <option value="25">25</option>
+                                                                                                                <option value="26">26</option>
+                                                                                                                <option value="27">27</option>
+                                                                                                                <option value="28">28</option>
+                                                                                                                <option value="29">29</option>
+                                                                                                                <option value="30" selected="selected">30</option>
+                                                                                                                <option value="31">31</option>
+                                                                                                                <option value="32">32</option>
+                                                                                                                <option value="33">33</option>
+                                                                                                                <option value="34">34</option>
+                                                                                                                <option value="35">35</option>
+                                                                                                                <option value="36">36</option>
+                                                                                                                <option value="37">37</option>
+                                                                                                                <option value="38">38</option>
+                                                                                                                <option value="39">39</option>
+                                                                                                                <option value="40">40</option>
+                                                                                                                <option value="41">41</option>
+                                                                                                                <option value="42">42</option>
+                                                                                                                <option value="43">43</option>
+                                                                                                                <option value="44">44</option>
+                                                                                                                <option value="45">45</option>
+                                                                                                                <option value="46">46</option>
+                                                                                                                <option value="47">47</option>
+                                                                                                                <option value="48">48</option>
+                                                                                                                <option value="49">49</option>
+                                                                                                                <option value="50">50</option>
+                                                                                                                <option value="51">51</option>
+                                                                                                                <option value="52">52</option>
+                                                                                                                <option value="53">53</option>
+                                                                                                                <option value="54">54</option>
+                                                                                                                <option value="55">55</option>
+                                                                                                                <option value="56">56</option>
+                                                                                                                <option value="57">57</option>
+                                                                                                                <option value="58">58</option>
+                                                                                                                <option value="59">59</option>
+                                                                                                                <option value="60">60</option>
+                                                                                                                <option value="61">61</option>
+                                                                                                                <option value="62">62</option>
+                                                                                                                <option value="63">63</option>
+                                                                                                                <option value="64">64</option>
+                                                                                </select>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Traceroute!" name="Submit"/>
+        </p>
+    </form>
+</div>                    </div>
+        <div class="clear"></div>
+    </div>
+</div>                <div id="menu_content_content_spellchecker_menu" class="editSplitButtonMenu" style="position: absolute; left: 542px; top: 275px; z-index: 200000; width: 105px; height: 253px;display:none;">
+    <div id="menu_content_content_spellchecker_menu_co" class="editMenu editSplitButtonMenu">
+        <span class="editMenuLine"></span>
+        <table cellspacing="0" cellpadding="0" border="0" id="menu_content_content_spellchecker_menu_tbl">
+            <tbody>
+                <tr id="edit_0" class="editMenuItem editFirst editMenuItemDisabled">
+                    <td class="editMenuItemTitle">
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon"></span>
+                            <span class="editText" title="语言">语言</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_1" class="editMenuItem editMenuItemEnabled editMenuItemSelected">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="English">English</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_2" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Danish">Danish</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_3" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Dutch">Dutch</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_4" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Finnish">Finnish</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_5" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="French">French</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_6" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="German">German</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_7" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Italian">Italian</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_8" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Polish">Polish</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_9" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Portuguese">Portuguese</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_10" class="editMenuItem editMenuItemEnabled">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Spanish">Spanish</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr id="edit_11" class="editMenuItem editMenuItemEnabled editLast">
+                    <td>
+                        <a href="javascript:;" onclick="return false;" onmousedown="return false;">
+                            <span class="editIcon edit_1"></span>
+                            <span class="editText" title="Swedish">Swedish</span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+                <div class="footer">
+    <div class="innerfooter">
+
+    </div>
+</div>            </div>
+        </div>
+    </body>
+</html>
